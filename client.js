@@ -64,7 +64,10 @@ ws.onmessage = (data) => {
                 cantJoinInit();
             break;
         case "gameNext":
-            inGameInit(data.card);
+            if(ID){
+                inGameInit(data.card);
+            }else
+                cantJoinInit();
             break;
         case "seeCard":
             alert("The card was : \n"+cardToString(data.oldCard.value,data.oldCard.color));
