@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Emergency stop</title>
+    </head>
+    <body>
+        <h1 style="color:red;">This page is for emergency stop only</h1>
+        <h3>Because this website is still in devellopment, please do not abuse</h3>
+        <button id="stop">Stop the game</button><a href="/"><button>Go back</button></a>
+        <script>
+            //connect to the server
+            var HOST = location.origin.replace(/^http/, 'ws');
+            var ws = new WebSocket(HOST);
+
+            document.getElementById("stop").addEventListener("click", ()=> {
+                ws.send(JSON.stringify({
+                    type:'ITS-TIME-TO-STOP'
+                }))
+            });
+        </script>
+    </body>
+</html>
