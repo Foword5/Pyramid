@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Pyramid</title>
-    </head>
-    <body>
-        <main>
-            <h1>Loading...</h1>
-        </main>
-        <script src="/clientFunctions.js"></script>
-        <script src="/client.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyramide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <loding-screen>
+            <p>Loading...</p>
+        </loding-screen>
+
+        <setup-screen class="hide">
+            <!-- <p>setup-screen</p> -->
+            <div class="settings__container">
+                <label for='height'>Height of the pyramid : </label>
+                <input type='number' id='height' value="4"></input><br />
+                <button id='submit'>Create Room</button>
+            </div>
+        </setup-screen>
+
+        <lobby-screen class="hide">
+            <template class="template__lobby">
+                <div class="lobby__container">
+                    <h2 class="size"></h2>
+                    <p class="playerId"></p>
+                    <!-- <div class="joined hide"> -->
+                        <button class="hide" id="leave">leave the game</button>
+                        <button class="hide" id="start">start the game</button>
+                    <!-- </div> -->
+                    <button class="join hide" id="join">join the game</button>
+                    <!-- <div class="join hide">
+                    </div> -->
+                    <button id="cancel">Cancel</button>
+                </div>
+            </template>
+        </lobby-screen>
+
+        <template class="template__card">
+            <div class="card">
+                <span class="color"></span>
+                <span class="value"></span>
+            </div>
+        </template>
+
+        <pregame-cards-screen>
+            <div class="pregame__container">
+                <p>Check your cards</p>
+                <div class="cards__container">
+
+                </div>
+                <button id="next">Next</button>
+            </div>
+        </pregame-cards-screen>
+
+        <game-screen class="hide">
+            <!-- <p>game-screen</p> -->
+            <div class="pyramid__container">
+
+            </div>
+            <div class="playerOptions">
+                <player-cards>
+
+                </player-cards>
+                <!-- <div id='seeNextCard'> -->
+                    <button id='nextCard'>Next Card</button>
+                    <p class="hide">Waiting for the other players...</p>
+                <!-- </div> -->
+            </div>
+        </game-screen>
+    </main>
+    <script src="/clientFunctions.js"></script>
+    <script src="/client.js"></script>
+</body>
 </html>
