@@ -4,6 +4,11 @@ function init(){
     body = document.getElementsByTagName('main')[0];
 }
 
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 let lodingScreen = document.querySelector('loding-screen');
 let setupScreen = document.querySelector('setup-screen');
 let lobbyScreen = document.querySelector('lobby-screen');
@@ -288,9 +293,9 @@ function inGameInit(firstCard){
         //     body.innerHTML += "<br />";
     } 
 
-    document.querySelector('player-cards').innerHTML = ""
+    // document.querySelector('player-cards').innerHTML = ""
     for(let i=0;i<4;i++){
-        document.querySelector('player-cards').innerHTML += "<button class='card hide' id='see"+i+"'>Voir carte "+(parseInt(i)+1)+"</button>";
+        document.querySelector('player-cards').innerHTML += "<div class='card hide' id='see"+i+"'>Voir carte "+(parseInt(i)+1)+"</div>";
         // body.innerHTML += "<button id='see"+i+"'>Voir carte "+(parseInt(i)+1)+"</button>";
     }
 
@@ -303,6 +308,8 @@ function inGameInit(firstCard){
             id:ID
         }))
     });
+
+    // document.querySelectorAll("")
 
     for(let i=0;i<4;i++){
         document.getElementById("see"+i).addEventListener("click", ()=> {
@@ -361,4 +368,10 @@ function CreateCard(card, hidden) {
     color.textContent = colorStr;
     
     return clone
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
