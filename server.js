@@ -14,7 +14,8 @@ const FILES = //Any files refered to in the client
         '/game.js',
         '/client.js',
         '/card.js',
-        '/stop.html'
+        '/stop.html',
+        '/style.css'
     ];
 
 //We use a String so the server is set in only one command, cause for some reason it doesn't work if it's done on multiple lines ¯\_(ツ)_/¯
